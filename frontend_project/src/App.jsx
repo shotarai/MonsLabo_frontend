@@ -14,6 +14,7 @@ import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import SelectModePage from "./pages/SelectModePage";
 import SelectMonsterPage from "./pages/SelectMonsterPage";
+import TestPage from "./pages/TestPage";
 // import TestPage from "./pages/TestPage";
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
                 <Route path={`/check`} element={<CheckPage />} />
                 <Route path={`/make`} element={<MakePage />} />
                 <Route path={`/talk`} element={<TalkPage/>} />
+                <Route path={`/test`} element={<TestPage/>} />
                 {/* <Route path={`/`} element={<TestPage />} /> */}
                 {/* /homeパスに対するルート要素としてHomeコンポーネントを設定
                 <Route path={`/home`} element={<Test />} /> */}

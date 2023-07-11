@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+// import CircularProgress from "@mui/material/CircularProgress";
+// import { database } from "../firebase/firebase";
 
 const MakePage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -53,9 +55,15 @@ const MakePage = () => {
   //   setIsLoading(true);
 
   //   try {
-  //     // Firestoreへの格納の処理を実行する
-
+  //     // Firestoreにデータを格納
+  //     await database.collection("users").doc("RdeJHrhbb8WrVeQjUserGFT4aA13").collection("users").add({
+  //       name,
+  //       gender,
+  //       hobby,
+  //     });
   //     // 格納が完了したら以下のコードを実行する
+  //     {/*グルグルマーク*/}
+  //     <CircularProgress />
   //     // navigate("/talk", { state: { selectedFile } });
   //   } catch (error) {
   //     console.error("Firestoreへの格納中にエラーが発生しました。", error);

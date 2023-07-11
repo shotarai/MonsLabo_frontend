@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import character_img from "../assets/ドラゴン.png";
+// import character_img from "../assets/ドラゴン.png";
 import lab_img from "../assets/lab.jpg";
 
 const TalkPage = () => {

@@ -1,3 +1,185 @@
+import CircularProgress from "@mui/material/CircularProgress";
+import { database } from "../firebase/firebase";
+// import {doc, setDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
+import { useState } from "react";
+import { Navigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
+import { getDoc } from "firebase/firestore";
+// import { getStorage, ref, uploadBytes } from "firebase/storage";
+
+const TestPage = () => {
+  // function sendData() {
+  //     try {
+  //         // Firestoreにデータを格納
+  //         await database.collection("users").doc("RdeJHrhbb8WrVeQjUserGFT4aA13").collection("users").add({
+  //           name :"Name",
+  //           gender : "male",
+  //           hobby :"hobby",
+  //         });.then
+  //         // 格納が完了したら以下のコードを実行する
+
+  //         // navigate("/talk", { state: { selectedFile } });
+  //       } catch (error) {
+  //         console.error("Firestoreへの格納中にエラーが発生しました。", error);
+  //       }
+  // }
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [errorMessages, setErrorMessages] = useState("");
+  const sendFirestore = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      // Firestoreにデータを格納
+      await updateDoc(doc(database, "uid", "001"), {
+        name: "Name",
+        gender: "male",
+        hobby: "hobby",
+        _logInput: { 1: "1だよ", 2: "2だよ", 3: "3だぜ" },
+        _logOutput: { 1: "1でkぢあ", 2: "2だあああ", 3: "3aaa" },
+      }).then(setIsCompleted(false));
+      // 格納が完了したら以下のコードを実行する
+
+      // navigate("/talk", { state: { selectedFile } });
+    } catch (error) {
+      console.error("Firestoreへの格納中にエラーが発生しました。", error);
+      setErrorMessages(error.message);
+    }
+
+    setIsLoading(false);
+  };
+
+  const getFirestore = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      // Firestoreにデータを格納
+      const docRef = doc(database, "RdeJHrhbb8WrVeQjUserGFT4aA13", "Monster1");
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        // setErrorMessages(docSnap.data());
+      } else {
+        // docSnap.data() will be undefined in this case
+        setErrorMessages("No such document!");
+      }
+      setIsCompleted(false);
+      // 格納が完了したら以下のコードを実行する
+
+      // navigate("/talk", { state: { selectedFile } });
+    } catch (error) {
+      console.error(
+        "Firestoreからのデータ取得時にエラーが発生しました。",
+        error
+      );
+      setErrorMessages(error.message);
+    }
+    setIsLoading(false);
+  };
+
+  //ユーザーIDを取得する関数
+  const getUid = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+      console.log(user.uid);
+      setErrorMessages(user.uid);
+      setIsCompleted(false);
+    } else {
+      setErrorMessages("サインインしていません。");
+    }
+    setIsLoading(false);
+  };
+
+//   //画像をアップする関数
+//   function sendImage() {
+//     // nullチェック
+//     const title = titleTextField.value;
+//     const content = contentTextField.value;
+//     const selectImage = imageView.src;
+
+//     if (title && content && selectImage) {
+//       // 今日の日付を使用してユニークな名前を生成
+//       const imageName = `${Date.now()}.jpg`;
+//       // 今回は"posts"というフォルダーに画像を保存する
+//       const reference = firebase.storage().ref().child(`posts/${imageName}`);
+//       // 画像データのサイズを調整
+//       const canvas = document.createElement("canvas");
+//       const context = canvas.getContext("2d");
+//       const image = new Image();
+
+//       image.src = selectImage;
+//       image.onload = function () {
+//         canvas.width = image.width;
+//         canvas.height = image.height;
+//         context.drawImage(image, 0, 0, image.width, image.height);
+//         const imageData = canvas.toDataURL("image/jpeg", 0.8).split(",")[1];
+
+//         // メタデータを設定
+//         const metadata = { contentType: "image/jpeg" };
+
+//         // storageへの保存を行う
+//         reference
+//           .putString(imageData, "base64", metadata)
+//           .then(() => {
+//             // storageへの保存が成功した場合はdownloadURLの取得を行う
+//             reference
+//               .getDownloadURL()
+//               .then((url) => {
+//                 // downloadURLの取得が成功した場合
+//                 // 文字列に変換する
+//                 const downloadUrlStr = url;
+//                 // firestoreへの保存を行う
+//                 firebase
+//                   .firestore()
+//                   .collection("posts")
+//                   .add({
+//                     title: title,
+//                     content: content,
+//                     imageURL: downloadUrlStr,
+//                     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+//                   })
+//                   .then(() => {
+//                     // firestoreへの保存が成功した場合
+//                   })
+//                   .catch((error) => {
+//                     // firestoreへの保存が失敗した場合
+//                   });
+//               })
+//               .catch((error) => {
+//                 // downloadURLの取得が失敗した場合の処理
+//               });
+//           })
+//           .catch((error) => {
+//             // storageの保存が失敗した場合の処理
+//           });
+//       };
+//     }
+//   }
+
+  return (
+    <div>
+      {isCompleted && <Navigate to="/talk" replace />}
+      <button onClick={sendFirestore}>Firestoreに送る</button>
+      <button onClick={getFirestore}>Firestoreからデータを受け取る</button>
+      {/* <button onClick={sendImage}>Storageに画像を送信</button> */}
+      <button onClick={getUid}>ユーザーIDの取得</button>
+      {isLoading && <CircularProgress />}
+      {/*グルグルマーク*/} <CircularProgress />
+      <h3>{errorMessages}</h3>
+    </div>
+  );
+};
+
+export default TestPage;
+
 // import { useRef, useEffect, useState } from "react";
 
 // const TestPage = () => {
@@ -64,7 +246,7 @@
 //     setEmail(event.target.value);
 //   };
 
-//   const handleSubmit = (event) => {
+//   const sendFirestore = (event) => {
 //     event.preventDefault();
 //     // フォームの送信処理などを実行する場合はここに追加します
 //     console.log('名前:', name);
@@ -72,7 +254,7 @@
 //   };
 
 //   return (
-//     <form onSubmit={handleSubmit}>
+//     <form onSubmit={sendFirestore}>
 //       <div>
 //         <label htmlFor="name">名前:</label>
 //         <input

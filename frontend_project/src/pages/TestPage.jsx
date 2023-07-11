@@ -1,54 +1,54 @@
-import { useRef, useEffect, useState } from "react";
+// import { useRef, useEffect, useState } from "react";
 
-const TestPage = () => {
-  const canvasRef = useRef(null); // キャンバスの参照を作成
-  const [isDrawing, setIsDrawing] = useState(false); // 描画中かどうかを管理するステート
-  const [context, setContext] = useState(null); // キャンバスのコンテキストを管理するステート
+// const TestPage = () => {
+//   const canvasRef = useRef(null); // キャンバスの参照を作成
+//   const [isDrawing, setIsDrawing] = useState(false); // 描画中かどうかを管理するステート
+//   const [context, setContext] = useState(null); // キャンバスのコンテキストを管理するステート
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    setContext(ctx); // コンポーネントがマウントされたときにキャンバスのコンテキストを設定
-  }, []);
+//   useEffect(() => {
+//     const canvas = canvasRef.current;
+//     const ctx = canvas.getContext("2d");
+//     setContext(ctx); // コンポーネントがマウントされたときにキャンバスのコンテキストを設定
+//   }, []);
 
-  const startDrawing = (event) => {
-    const { offsetX, offsetY } = event.nativeEvent;
-    context.beginPath(); // 描画を開始
-    context.moveTo(offsetX, offsetY); // 描画の開始位置を設定
-    setIsDrawing(true); // 描画中に設定
-  };
+//   const startDrawing = (event) => {
+//     const { offsetX, offsetY } = event.nativeEvent;
+//     context.beginPath(); // 描画を開始
+//     context.moveTo(offsetX, offsetY); // 描画の開始位置を設定
+//     setIsDrawing(true); // 描画中に設定
+//   };
 
-  const draw = (event) => {
-    if (!isDrawing) return;
-    const { offsetX, offsetY } = event.nativeEvent;
-    context.lineTo(offsetX, offsetY); // 現在の位置から指定した位置まで線を引く
-    context.stroke(); // 描画を行う
-  };
+//   const draw = (event) => {
+//     if (!isDrawing) return;
+//     const { offsetX, offsetY } = event.nativeEvent;
+//     context.lineTo(offsetX, offsetY); // 現在の位置から指定した位置まで線を引く
+//     context.stroke(); // 描画を行う
+//   };
 
-  const stopDrawing = () => {
-    context.closePath(); // 描画を終了
-    setIsDrawing(false); // 描画中を解除
-  };
+//   const stopDrawing = () => {
+//     context.closePath(); // 描画を終了
+//     setIsDrawing(false); // 描画中を解除
+//   };
 
-  const clearCanvas = () => {
-    context.clearRect(0, 0, context.canvas.width, context.canvas.height); // キャンバスの内容をクリア
-  };
+//   const clearCanvas = () => {
+//     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // キャンバスの内容をクリア
+//   };
 
-  return (
-    <div>
-      <canvas
-        ref={canvasRef}
-        onMouseDown={startDrawing}
-        onMouseMove={draw}
-        onMouseUp={stopDrawing}
-        onMouseLeave={stopDrawing}
-      />
-      <button onClick={clearCanvas}>クリア</button>
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       <canvas
+//         ref={canvasRef}
+//         onMouseDown={startDrawing}
+//         onMouseMove={draw}
+//         onMouseUp={stopDrawing}
+//         onMouseLeave={stopDrawing}
+//       />
+//       <button onClick={clearCanvas}>クリア</button>
+//     </div>
+//   );
+// };
 
-export default TestPage;
+// export default TestPage;
 
 // import React, { useState } from 'react';
 

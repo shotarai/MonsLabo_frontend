@@ -31,8 +31,8 @@ const MakePage = () => {
   const handleHobbyChange = (event) => {
     setHobby(event.target.value);
   };
-
-  const handleSubmit = (event) => {
+  
+  const handleModalOpen = (event) => {
     event.preventDefault();
     setShowModal(true);
   };
@@ -46,10 +46,30 @@ const MakePage = () => {
     navigate("/talk", { state: { selectedFile } });
   };
 
+  // const [isLoading, setIsLoading] = useState(false);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   setIsLoading(true);
+
+  //   try {
+  //     // Firestoreへの格納の処理を実行する
+
+  //     // 格納が完了したら以下のコードを実行する
+  //     // navigate("/talk", { state: { selectedFile } });
+  //   } catch (error) {
+  //     console.error("Firestoreへの格納中にエラーが発生しました。", error);
+  //   }
+
+  //   setIsLoading(false);
+  // };
+
+
+
   return (
     <>
       <div className="flex items-center justify-center h-screen w-screen">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleModalOpen}>
           <h1 className="text-center text-2xl mb-4">
             キャラの情報を登録してください。
           </h1>

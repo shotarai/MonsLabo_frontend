@@ -10,6 +10,10 @@ import PaintPage from "./pages/PaintPage";
 import CheckPage from "./pages/CheckPage";
 import MakePage from "./pages/MakePage";
 import TalkPage from "./pages/TalkPage";
+import HomePage from "./pages/HomePage";
+import SignUpPage from "./pages/SignUpPage";
+import SelectModePage from "./pages/SelectModePage";
+import SelectMonsterPage from "./pages/SelectMonsterPage";
 // import TestPage from "./pages/TestPage";
 
 function App() {
@@ -55,7 +59,11 @@ function App() {
             <BrowserRouter>
               <Routes>
                 {/* ルートパスに対するルート要素としてSignInPageコンポーネントを設定 */}
-                <Route path={`/`} element={<PaintPage />} />
+                <Route path={`/`} element={<HomePage />} />
+                <Route path={`/signUp`} element={<SignUpPage />} />
+                <Route path={`/selectMode`} element={<SelectModePage />} />
+                <Route path={`/selectMonster`} element={<SelectMonsterPage />} />
+                <Route path={`/paint`} element={<PaintPage />} />
                 <Route path={`/check`} element={<CheckPage />} />
                 <Route path={`/make`} element={<MakePage />} />
                 <Route path={`/talk`} element={<TalkPage/>} />

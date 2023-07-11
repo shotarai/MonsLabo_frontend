@@ -8,6 +8,14 @@ const MakePage = () => {
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
   const [hobby, setHobby] = useState("");
+
+
+
+
+
+
+
+  
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 

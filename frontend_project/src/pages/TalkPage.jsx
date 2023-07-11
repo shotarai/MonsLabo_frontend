@@ -19,14 +19,26 @@ const TalkPage = () => {
 
     try {
       console.log(formInput);
-      const response = await axios.post("http://127.0.0.1:5000", {
-        data: formInput,
-      });
+      const response = await axios.post(
+        "https://monslabobackend-production.up.railway.app/response",
+        {
+          name: "test",
+          age: 13331,
+          sex: "male",
+          hobby: "volleyball",
+          race: "rabit",
+          input_log: ["よろしくね", "おいのび太、お前はもう死んでいる"],
+          output_log: ["こんにちは"],
+          num_response: 1,
+        }
+      );
 
       setResponseData(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error(error);
-      setResponseData("Error: Failed to fetch data from API");
+      setResponseData(error.message);
+      // setResponseData("Error: Failed to fetch data from API");
     }
   };
 
@@ -35,11 +47,9 @@ const TalkPage = () => {
       className="flex flex-col items-center w-screen h-screen justify-end"
       style={{ backgroundImage: `url(${lab_img})`, backgroundSize: "cover" }}
     >
-
       <div className="border-4 bg-white">
         <img src={selectedFile} width="520" height="390" alt="My Drawing" />
       </div>
-
       <div className="mt-4 w-screen">
         <textarea
           className="w-3/5 h-40 px-4 py-2 border border-gray-300 rounded-lg bg-gradient-to-t from-gray-400 to-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -47,9 +57,7 @@ const TalkPage = () => {
           readOnly // 入力禁止にする
         ></textarea>
       </div>
-
       <div className="my-12"></div> {/* 余白を追加 */}
-
       <form className="my-4 flex items-center w-3/5" onSubmit={handleSubmit}>
         <textarea
           className="flex-grow h-10 px-4 py-2 border border-gray-300 rounded mr-4"
@@ -59,25 +67,25 @@ const TalkPage = () => {
         ></textarea>
 
         <button
-            type="submit"
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 flex items-center"
+          type="submit"
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 flex items-center"
+        >
+          <span className="mr-2">送信</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <span className="mr-2">送信</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-              />
-            </svg>
-          </button>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+            />
+          </svg>
+        </button>
       </form>
     </div>
   );

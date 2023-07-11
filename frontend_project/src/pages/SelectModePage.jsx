@@ -1,15 +1,19 @@
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 
 const SelectModePage = () => {
+  
+  const navigate = useNavigate();
   const handleCreateMonster = () => {
     // モンスターを作成ボタンがクリックされた時の処理
-    return <Navigate to="/selectMode" replace />;
+    navigate("/selectMake");
   };
 
   const handleTalkToMonster = () => {
     // モンスターと会話ボタンがクリックされた時の処理
-    return <Navigate to="/selectMonster" replace />;
+    navigate("/selectMonster");
   };
+
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">

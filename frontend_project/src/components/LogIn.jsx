@@ -40,7 +40,7 @@ const LogIn = () => {
     return (
         <>
             {user ? (
-                <Navigate to="/talk" replace /> // ユーザーがログインしている場合、Navigateコンポーネントを使用して指定のURLにリダイレクト
+                <Navigate to="/selectMode" replace /> // ユーザーがログインしている場合、Navigateコンポーネントを使用して指定のURLにリダイレクト
             ) : (
                 <>
                     <Typography component="h1" variant="h3">

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import character_img from "../assets/ドラゴン.png";
+// import character_img from "../assets/ドラゴン.png";
 import lab_img from "../assets/lab.jpg";
 
 const TalkPage = () => {
@@ -10,7 +10,19 @@ const TalkPage = () => {
   const location = useLocation();
   const selectedFile = location.state?.selectedFile || null;
 
+  const monsterId = location.state?.monsterId || null;
+  const name = location.state?.name || null;
+  const age = location.state?.age || null;
+  const gender = location.state?.gender || null;
+  const hobby = location.state?.hobby || null;
+  const race = location.state?.race || null;
+  const _logInput = location.state?._logInput || null;
+  const _logOutput = location.state?._logOutput || null;
+  const num_response = location.state?.num_response || null;
+  const image_url = location.state?.image_url || null;
+
   const handleInputChange = (e) => {
+    console.log(monsterId, name, age, gender, hobby, race, _logInput, _logOutput, num_response, image_url);
     setFormInput(e.target.value);
   };
 
@@ -19,9 +31,19 @@ const TalkPage = () => {
 
     try {
       console.log(formInput);
-      const response = await axios.post("http://127.0.0.1:5000", {
-        data: formInput,
-      });
+      const response = await axios.post(
+        "https://monslabobackend-production.up.railway.app/response",
+        {
+          name: "test",
+          age: 13331,
+          sex: "male",
+          hobby: "volleyball",
+          race: "rabit",
+          input_log: ["よろしくね", "おいのび太、お前はもう死んでいる"],
+          output_log: ["こんにちは"],
+          num_response: 1,
+        }
+      );
 
       setResponseData(response.data);
     } catch (error) {

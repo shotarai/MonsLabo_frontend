@@ -7,9 +7,14 @@ import CssBaseline from "@mui/material/CssBaseline";
 // import useMediaQuery from "@mui/material/useMediaQuery";
 import "./App.css";
 import PaintPage from "./pages/PaintPage";
-import CheckPage from "./pages/CheckPage";
 import MakePage from "./pages/MakePage";
 import TalkPage from "./pages/TalkPage";
+import HomePage from "./pages/HomePage";
+import SignUpPage from "./pages/SignUpPage";
+import SelectModePage from "./pages/SelectModePage";
+import SelectMonsterPage from "./pages/SelectMonsterPage";
+import TestPage from "./pages/TestPage";
+import SelectMakePage from "./pages/selectMakePage";
 // import TestPage from "./pages/TestPage";
 
 function App() {
@@ -55,10 +60,15 @@ function App() {
             <BrowserRouter>
               <Routes>
                 {/* ルートパスに対するルート要素としてSignInPageコンポーネントを設定 */}
-                <Route path={`/`} element={<PaintPage />} />
-                <Route path={`/check`} element={<CheckPage />} />
+                <Route path={`/`} element={<HomePage />} />
+                <Route path={`/signUp`} element={<SignUpPage />} />
+                <Route path={`/selectMode`} element={<SelectModePage />} />
+                <Route path={`/selectMonster`} element={<SelectMonsterPage />} />
+                <Route path={`/selectMake`} element={<SelectMakePage />} />
+                <Route path={`/paint`} element={<PaintPage />} />
                 <Route path={`/make`} element={<MakePage />} />
                 <Route path={`/talk`} element={<TalkPage/>} />
+                <Route path={`/test`} element={<TestPage/>} />
                 {/* <Route path={`/`} element={<TestPage />} /> */}
                 {/* /homeパスに対するルート要素としてHomeコンポーネントを設定
                 <Route path={`/home`} element={<Test />} /> */}

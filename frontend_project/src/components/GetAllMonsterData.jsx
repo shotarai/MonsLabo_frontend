@@ -12,6 +12,8 @@ const HandleGetData = async () => {
       // Firestoreからデータを取得
     //   const docRef = collection(database, String(user.uid));
       const docSnap = await getDocs(collection(database, user.uid));
+      console.log("モンスターの数を確かめたい。");
+      console.log(docSnap.length);
       docSnap.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data().name);

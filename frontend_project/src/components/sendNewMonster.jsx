@@ -1,5 +1,5 @@
 import { database } from "../firebase/firebase";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 
@@ -12,7 +12,7 @@ const HandleSendData = async (data) => {
       console.log(user.uid);
       try {
         // Firestoreにデータを格納
-        await updateDoc(doc(database, user.uid, String(Number(data.monsterId) + 1)), {
+        await setDoc(doc(database, user.uid, (data.monsterId.toString().padStart(3, "0"))), {
           name: data.name,
           gender: data.gender,
           hobby: data.hobby,

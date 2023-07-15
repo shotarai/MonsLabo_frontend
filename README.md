@@ -7,7 +7,7 @@
 （デプロイ済みのリンクは[こちら](https://mons-labo-frontend.vercel.app/)）<br>
 
 まず`frontend_project`ディレクトリ直下に以下の`.env`ファイルが必要になります。<br>
-Firebaseのキーについては調べてください。
+（Firebaseのキーについては調べてください。）
 ```
 VITE_FIREBASE_API_KEY=""
 VITE_FIREBASE_AUTH_DOMAIN=""

@@ -29,5 +29,5 @@ VITE_FIREBASE_MEASUREMENT_ID=""
 
 ## [MonsLab_Backend](https://github.com/Yoh-lab/MonsLabo_backend)に関して
 本プロジェクトにおいてモンスターとの会話を行うために利用しています。<br>
-Railwayにデプロイ済みのリンクを用いているため、特に向こうのプロジェクトを立ち上げる必要はありません
+Railwayにデプロイ済みのリンクを用いているため、特に向こうのプロジェクトを立ち上げる必要はありません。<br>
 （ローカルで実行してみたい場合は向こうのREADME参照）

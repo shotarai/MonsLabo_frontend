@@ -1,8 +1,8 @@
-# MonsLab_Frontend
+# MonsLab_frontend
 ![Group 63](https://github.com/Yoh-lab/MonsLabo_frontend/assets/92442298/78f1749c-45ee-40fb-8e40-9fb4109fe61b)
 ★をたくさん付けてあげてください！
 
-## MonsLab_Frontendの使い方
+## MonsLab_frontendの使い方
 以下ではローカルでの実行手順を記載します。<br>
 （デプロイ済みのリンクは[こちら](https://mons-labo-frontend.vercel.app/)）<br>
 
@@ -27,7 +27,7 @@ VITE_FIREBASE_MEASUREMENT_ID=""
 その後、ビルドをしてください。<br>
 `npm run dev`
 
-## [MonsLab_Backend](https://github.com/Yoh-lab/MonsLabo_backend)に関して
+## [MonsLab_backend](https://github.com/Yoh-lab/MonsLabo_backend)に関して
 本プロジェクトにおいてモンスターとの会話を行うために利用しています。<br>
 Railwayにデプロイ済みのリンクを用いているため、特に向こうのプロジェクトを立ち上げる必要はありません。<br>
 （ローカルで実行してみたい場合は向こうのREADME参照）

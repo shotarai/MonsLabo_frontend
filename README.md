@@ -6,7 +6,10 @@
 以下ではローカルでの実行手順を記載します。<br>
 （デプロイ済みのリンクは[こちら](https://mons-labo-frontend.vercel.app/)）<br>
 
-まず`frontend_project`ディレクトリ直下に以下の`.env`ファイルが必要になります。<br>
+まず本レポジトリのクローンをお願いします。<br>
+`git clone https://github.com/Yoh-lab/MonsLabo_frontend`
+
+次に`frontend_project`ディレクトリ直下に以下の`.env`ファイルが必要になります。<br>
 （Firebaseのキーについては調べてください。）
 ```
 VITE_FIREBASE_API_KEY=""
@@ -18,13 +21,10 @@ VITE_FIREBASE_APP_ID=""
 VITE_FIREBASE_MEASUREMENT_ID=""
 ```
 
-まず、本レポジトリのクローンをお願いします。<br>
-`git clone https://github.com/Yoh-lab/MonsLabo_frontend`
-
-続いて、`frontend_project`ディレクトリに移動したのち必要なパッケージのインストールをお願いします。<br>
+続いて`frontend_project`ディレクトリに移動したのち必要なパッケージのインストールをお願いします。<br>
 `cd frontend_project` -> `npm install`
 
-その後、ビルドをしてください。<br>
+その後ビルドをしてください。<br>
 `npm run dev`
 
 ## [MonsLab_backend](https://github.com/Yoh-lab/MonsLabo_backend)に関して

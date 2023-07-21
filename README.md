@@ -1,5 +1,6 @@
 # MonsLab_frontend
-![Group 63](https://github.com/Yoh-lab/MonsLabo_frontend/assets/92442298/78f1749c-45ee-40fb-8e40-9fb4109fe61b)
+![Group 63](https://github.com/Yoh-lab/MonsLabo_frontend/assets/92442298/0660162c-1c33-49ba-be0d-0dc68dccbceb)
+
 ★をたくさん付けてあげてください！
 
 ## MonsLab_frontendの使い方
